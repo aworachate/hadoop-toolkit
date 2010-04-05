@@ -1,0 +1,50 @@
+#summary Hadoop Performance Monitoring UI
+
+= Introduction =
+
+Hadoop Performance Monitoring UI provides an Hadoop inbuilt solution for quickly finding performance bottlenecks and provide a visual representation of the configuration parameters which might be tweaked for better performance numbers.
+
+
+= Details =
+
+Hadoop is a distributed computing framework runs on large clusters. A few steps have already been taken in the field of Hadoop performance analysis and diagnosis.
+  * Hadoop Vaidya
+    ** a performance diagnostic tool for Hadoop jobs which executes a set of rules against the job counters and gives a report of performance improvement areas as a result.
+    ** _Shortcomings of vaidya_:
+      ** Limited set of rules as of now (due to limited job counters).
+      ** Doesn’t solve all of the above problems in distributed systems.
+      ** Output XML report is not very user friendly
+      ** Separate contrib. module.
+
+  * Hadoop Metrics (used with Ganglia and Nagios):
+    ** All Hadoop daemons expose runtime metrics which are then analyzed by some cluster monitoring systems like Ganglia or Nagios.
+    ** _Shortcomings of Hadoop Metrics_:
+      ** Limited number of metrics as of now
+      ** Doesn’t solve all of the above problems in distributed systems
+      ** Lots of dependencies on third party software and libraries.
+
+We have come up with a solution to all the shortcomings of Vaidya and Hadoop Metrics as a feature in Hadoop itself. Following are the features we have added in our patch
+===Added new job/task counters===
+    ** Number of spills (per map task )
+    ** Maximum memory used (by each task)
+    ** GC time millis (time spent in gc by each task)
+
+===Tasktracker Monitoring===
+On Jobtracker web UI we have given a link “TaskTracker Info” on jobdetails page as shown in the following snapshot.It gives the current information about all the tasktrackers in realtime while the job is running. Following information about tasktrackers are shown. 
+    ** Total Memory (RAM) of tasktracker
+    ** Number of CPU cores on tasktracker
+    ** CPU Idle Percentage
+    ** Free Memory
+    ** Cache Memory
+    ** Swap Memory used
+
+===Post Job Performance Analysis & Diagnosis===
+This feature is a little similar to Hadoop vaidya but with increased set of rules, more ser friendly output reports, diagnosis tips for different properties and lastly all of this with just a single click. We have given a link “Performance Analysis ” on jobdetailhistory page as shown in the following snapshot. 
+
+
+ 
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
