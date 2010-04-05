@@ -68,4 +68,4 @@ These features have extra processing overhead on Jobtracker and tasktrackers bec
   ** Graphical representation of tastracker statistics.
   ** Addition of more rules in performance diagnosis module.
 
-[http://code.google.com/p/hadoop-toolkit/wiki/TechicalDetails]
+Techincal details are [http://code.google.com/p/hadoop-toolkit/wiki/TechicalDetails here]
