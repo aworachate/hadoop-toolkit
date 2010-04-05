@@ -69,3 +69,5 @@ These features have extra processing overhead on Jobtracker and tasktrackers bec
   ** Addition of more rules in performance diagnosis module.
 
 Techincal details are [http://code.google.com/p/hadoop-toolkit/wiki/TechicalDetails here]
+
+The patches for hadoop version 0.20.2 and 0.19.2 are available in the source repository 
