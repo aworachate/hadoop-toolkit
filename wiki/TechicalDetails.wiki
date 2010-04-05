@@ -9,11 +9,13 @@ Task Reporter thread of each task send its progress after every 3 seconds to the
 ====Tasktracker Startup====
 On tasktracker startup we calculate the following values and send them to the jobtracker through heartbeat. 
   ** Number of CPU cores on tasktracker node: we execute the following command through ShellCommandExecutor to calculate cpu cores on the machine.
-“grep processor /proc/cpuinfo | wc –l”
+{{{
+grep processor /proc/cpuinfo | wc –l
+}}}
   ** Total RAM size on tasktracker node: we run the top command to calculate this value
 At the jobtracker we maintain HashMaps to store these values, which are updated at the tasktracker startup. 
 ====Job Execution====
-We execute “top -n 2 -d 0 b” command through ShellCommandExecutor just before tasktracker sends heartbeat to the Jobtracker. We parse the following values from the command’s output
+We execute 'top -n 2 -d 0 b' command through ShellCommandExecutor just before tasktracker sends heartbeat to the Jobtracker. We parse the following values from the command’s output
   ** CPU Idle Percentage
   ** Free Memory
   ** Cache Memory
