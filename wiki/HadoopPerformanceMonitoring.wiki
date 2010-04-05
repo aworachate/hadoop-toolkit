@@ -40,11 +40,3 @@ On Jobtracker web UI we have given a link “TaskTracker Info” on jobdetails p
 
 ===Post Job Performance Analysis & Diagnosis===
 This feature is a little similar to Hadoop vaidya but with increased set of rules, more ser friendly output reports, diagnosis tips for different properties and lastly all of this with just a single click. We have given a link “Performance Analysis ” on jobdetailhistory page as shown in the following snapshot. 
-
-
- 
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
