@@ -46,6 +46,7 @@ It gives the current information about all the tasktrackers in realtime while th
 
 ===Post Job Performance Analysis & Diagnosis===
 This feature is a little similar to Hadoop vaidya but with increased set of rules, more ser friendly output reports, diagnosis tips for different properties and lastly all of this with just a single click. We have given a link “Performance Analysis ” on jobdetailhistory page as shown in the following snapshot. 
+
 [http://hadoop-toolkit.googlecode.com/files/post_job_1.jpg]
 
 It gives the following information of each property that affects performance. 
@@ -53,4 +54,16 @@ It gives the following information of each property that affects performance.
    ** Current Value
    ** Suggestion 
    ** Description
+
 [http://hadoop-toolkit.googlecode.com/files/post_job_2.jpg]
+
+These features have extra processing overhead on Jobtracker and tasktrackers because they use Top command periodically on tasktrackers. So all of these features can be toggled on/off by just setting a property “mapred.performance.diagnosis” to true/false in mapred-site.xml.
+
+====Prerequisites====
+  ** Linux ‘top’ command should be available on each tasktracker node.
+====Limitations====
+  ** All the history about job’s performance analysis & diagnosis will be lost on the jobtracker restart in this release. 
+====Future Release====
+  ** More information about tasktrackers like io wait, system cpu usage, network usage etc.
+  ** Graphical representation of tastracker statistics.
+  ** Addition of more rules in performance diagnosis module.
