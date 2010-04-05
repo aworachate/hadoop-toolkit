@@ -32,13 +32,15 @@ We have created performanceanaysis.jsp page to show the analysis report in a tab
 
     ** Map Tasks per Tasktracker: Controlled by the property mapred.tasktracker.map.tasks.maximum 
       ** Algorithm: 
+{{{
 If(maximumSwapMemoryUsedInKBWhileMap > swapMemoryThres){
 	showMessage(“Decrease Map Tasks or Memory per Task- Swap Memory Usage is: “ + + maximumSwapMemoryUsedInKBWhileMap);
 } else if (averageIdleCPUPercentageWhileMap > idleCpuThresMax){
 	showMessage("Increase Map Tasks - CPU is idle for " + averageIdleCPUPercentageWhileMap + "% time");
 } else {
 	showMessage("OK");
-			}
+}
+}}}   
     ** Other values: 
       ** Average idle CPU percentage while map
       ** Total CPU cores in cluster
@@ -50,7 +52,8 @@ If(maximumSwapMemoryUsedInKBWhileMap > swapMemoryThres){
     ** Block Size/Split Sizes: Controlled by the properties dfs.block.size/ mapred.min.split.size / mapred.max.split.size
     ** Algorithm: 
 {{{
-if(averageMapDuration < averageMapDurationThresMillis && percentFileSmallerThanSplitSzie < fileSizeThres) {			showMessage("Increase Split Size");
+if(averageMapDuration < averageMapDurationThresMillis && percentFileSmallerThanSplitSzie < fileSizeThres) {
+			showMessage("Increase Split Size");
 } else if(averageMapDuration > averageMapDurationThresMillis && percentFileSmallerThanSplitSzie > fileSizeThres){
 	showMessage("Decrease Split Size");
 } else if(mapIterations > mapIterationsThres && averageMapDuration > averageMapDurationThresMillis && percentFileSmallerThanSplitSzie < fileSizeThres){
@@ -69,18 +72,21 @@ if(averageMapDuration < averageMapDurationThresMillis && percentFileSmallerThanS
 
     ** Sort Buffer: Controlled by the property io.sort.mb
     ** Algorithm:
+{{{
 factor = spilledRecords/mapOutputRecords;
  if(factor > spillFactor){			
 showMessage("Increase Sort Buffer - SpilledRecords are " + factor + " times the MapOutputRecords");
-}else {
+} else {
 	showMessage("OK");	
 }
+}}}
     ** Other Values:
       ** Map Output Records
       ** Spilled Records
       ** Total Spills
     ** Sort Factor: Controlled by the property io.sort.factor
     ** Algorithm:
+{{{
 factor = averageNumberOfSpillsPerMap/sortFactor;
 if(factor > numSpillsFactor){
 showMessage("Increase Sort Factor - Spills/Map are " + factor + " times the current value");
@@ -89,6 +95,7 @@ showMessage("Ideally io.sort.mb=10*io.sort.factor");
 }else {
 	showMessage("OK");
 }
+}}}
     ** Other Values:
       ** SortFactor
       ** AverageNumberOfSpillsPerMap
@@ -96,19 +103,23 @@ showMessage("Ideally io.sort.mb=10*io.sort.factor");
 
     ** Map Output Compression: Controlled by the property mapred.compress.map.output
     ** Algorithm:
+{{{
 if(!mapOutputCompression){			
-showMessage("Ideally this value should be true");
+   showMessage("Ideally this value should be true");
 } else if(!compressionCodec.equals("com.hadoop.compression.lzo.LzoCodec")){	showMessage("Use LZO Compression for best   performance");
-}else {
+} else {
 	showMessage("OK");
 }
+}}}
     ** JVM Options: Controlled by the property mapred.child.java.opts
     ** Algorithm:
-if(averageCPUCoresPerTaskTracker > 2 && !javaOpts.contains("-XX:+UseConcMarkSweepGC")){			
+{{{
+if(averageCPUCoresPerTaskTracker > 2 && !javaOpts.contains("-XX:+UseConcMarkSweepGC")){		
 showMessage("Use -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+UseFastAccessorMethods -XX:-UseGCOverheadLimit -XX:+AggressiveOpts -server");
-}else {
+} else {
 	showMessage("OK");
 }
+}}}
     ** Other Values:
       ** % time spent in GC While Map
       ** % time spent in GC While Reduce
@@ -121,7 +132,9 @@ Other Parameters:
     ** Map Task ReExecution
     ** Reduce Task ReExecution
     ** Map/Reduce Speculative Execution
-We have created a property file hadoop-performance-analysis.properties in conf directory which contains the threshold values used in the above algorithms. Following are the default threshold values in properties file
+
+We have created a property file *hadoop-performance-analysis.properties* in conf directory which contains the threshold values used in the above algorithms. Following are the default threshold values in properties file.
+{{{
 # maximum swap memory in KB that can be used
 swap.memory.threshold=1024
 
@@ -139,3 +152,4 @@ map.iterations=10.0
 
 #spill factor
 num.spill.factor=3.0
+}}}
