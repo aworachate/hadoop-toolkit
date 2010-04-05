@@ -35,9 +35,9 @@ We have created performanceanaysis.jsp page to show the analysis report in a tab
     ** Map Tasks per Tasktracker: Controlled by the property mapred.tasktracker.map.tasks.maximum 
       ** Algorithm: 
 {{{
-If(maximumSwapMemoryUsedInKBWhileMap > swapMemoryThres){
+If(maximumSwapMemoryUsedInKBWhileMap > swapMemoryThres  && numMapTask > mapTaskCapacity){
 	showMessage(“Decrease Map Tasks or Memory per Task- Swap Memory Usage is: “ + + maximumSwapMemoryUsedInKBWhileMap);
-} else if (averageIdleCPUPercentageWhileMap > idleCpuThresMax){
+} else if (averageIdleCPUPercentageWhileMap > idleCpuThresMax  && numMapTask > mapTaskCapacity){
 	showMessage("Increase Map Tasks - CPU is idle for " + averageIdleCPUPercentageWhileMap + "% time");
 } else {
 	showMessage("OK");
@@ -50,15 +50,15 @@ If(maximumSwapMemoryUsedInKBWhileMap > swapMemoryThres){
       ** Minimum free memory while map
       ** Maximum swap memory used while map
 
-    ** Map Tasks per Tasktracker: Similar to the above property except replacing map with reduce.
+    ** Reduce Tasks per Tasktracker: Similar to the above property except replacing map with reduce.
     ** Block Size/Split Sizes: Controlled by the properties dfs.block.size/ mapred.min.split.size / mapred.max.split.size
     ** Algorithm: 
 {{{
-if(averageMapDuration < averageMapDurationThresMillis && percentFileSmallerThanSplitSzie < fileSizeThres) {
+if(averageMapDuration < averageMapDurationThresMillis && percentFileSmallerThanSplitSzie < fileSizeThres && percentFileSmallerThanSplitSize != -1) {
 			showMessage("Increase Split Size");
-} else if(averageMapDuration > averageMapDurationThresMillis && percentFileSmallerThanSplitSzie > fileSizeThres){
+} else if(averageMapDuration > averageMapDurationThresMillis && percentFileSmallerThanSplitSzie > fileSizeThres && percentFileSmallerThanSplitSize != -1){
 	showMessage("Decrease Split Size");
-} else if(mapIterations > mapIterationsThres && averageMapDuration > averageMapDurationThresMillis && percentFileSmallerThanSplitSzie < fileSizeThres){
+} else if(mapIterations > mapIterationsThres && averageMapDuration > averageMapDurationThresMillis && percentFileSmallerThanSplitSzie < fileSizeThres && percentFileSmallerThanSplitSize != -1){
 	showMessage("Increase Split Size");
 }else {
              showMessage("OK");
