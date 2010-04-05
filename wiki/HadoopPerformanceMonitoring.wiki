@@ -28,15 +28,29 @@ We have come up with a solution to all the shortcomings of Vaidya and Hadoop Met
     ** Number of spills (per map task )
     ** Maximum memory used (by each task)
     ** GC time millis (time spent in gc by each task)
+[http://hadoop-toolkit.googlecode.com/files/extra_task_counters.jpg]
 
 ===Tasktracker Monitoring===
-On Jobtracker web UI we have given a link “TaskTracker Info” on jobdetails page as shown in the following snapshot.It gives the current information about all the tasktrackers in realtime while the job is running. Following information about tasktrackers are shown. 
+On Jobtracker web UI we have given a link “TaskTracker Info” on jobdetails page as shown in the following snapshot.
+[http://hadoop-toolkit.googlecode.com/files/task_tracker_monitor_1.jpg]
+
+It gives the current information about all the tasktrackers in realtime while the job is running. Following information about tasktrackers are shown. 
     ** Total Memory (RAM) of tasktracker
     ** Number of CPU cores on tasktracker
     ** CPU Idle Percentage
     ** Free Memory
     ** Cache Memory
     ** Swap Memory used
+[http://hadoop-toolkit.googlecode.com/files/task_tracker_monitor_2.jpg]
+
 
 ===Post Job Performance Analysis & Diagnosis===
 This feature is a little similar to Hadoop vaidya but with increased set of rules, more ser friendly output reports, diagnosis tips for different properties and lastly all of this with just a single click. We have given a link “Performance Analysis ” on jobdetailhistory page as shown in the following snapshot. 
+[http://hadoop-toolkit.googlecode.com/files/post_job_1.jpg]
+
+It gives the following information of each property that affects performance. 
+   ** Property 
+   ** Current Value
+   ** Suggestion 
+   ** Description
+[http://hadoop-toolkit.googlecode.com/files/post_job_2.jpg]
