@@ -1,4 +1,3 @@
-#labels InstallationInstructions
 # Installation Instructions
 
 = Installation =
