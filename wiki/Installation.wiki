@@ -1,0 +1,26 @@
+# Installation Instructions
+
+= Installation =
+
+  * Checkout the patch from subversion and apply to the corresponding release.
+  * Add the following lines in webapps/job/WEB-INF/web.xml 
+
+       <servlet>
+        <servlet-name>org.apache.hadoop.mapred.performanceanalysis_jsp</servlet-name>
+        <servlet-class>org.apache.hadoop.mapred.performanceanalysis_jsp</servlet-class>
+       </servlet>
+       <servlet>
+        <servlet-name>org.apache.hadoop.mapred.tasktrackerinfo_jsp</servlet-name>
+        <servlet-class>org.apache.hadoop.mapred.tasktrackerinfo_jsp</servlet-class>
+       </servlet>
+
+       <servlet-mapping>
+        <servlet-name>org.apache.hadoop.mapred.performanceanalysis_jsp</servlet-name>
+        <url-pattern>/performanceanalysis.jsp</url-pattern>
+       </servlet-mapping>
+       <servlet-mapping>
+        <servlet-name>org.apache.hadoop.mapred.tasktrackerinfo_jsp</servlet-name>
+        <url-pattern>/tasktrackerinfo.jsp</url-pattern>
+       </servlet-mapping>
+
+  * Build and deploy.
