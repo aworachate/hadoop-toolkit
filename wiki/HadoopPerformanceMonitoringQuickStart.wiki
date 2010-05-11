@@ -1,13 +1,8 @@
-#summary One-sentence summary of this page.
+==Quick Start==
 
-= Introduction =
+#  Select the relevant patch from Source/trunk for the Hadoop version and download it
+#  Apply the patch on the Hadoop source code and build the new release 
+#  Set "mapred.performance.diagnosis” to true in mapred-site.xml. 
+#  Change "hadoop-performance-analysis.properties" in hadoop conf folder to change default threshold values
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+#  Advanced users can change "performanceanaysis.jsp" to change the recommendation algorithms for various parameters. Do perform a new release after this change.
