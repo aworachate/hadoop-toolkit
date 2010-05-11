@@ -5,4 +5,4 @@
   # Set "mapred.performance.diagnosis” to true in mapred-site.xml. 
   # Change "hadoop-performance-analysis.properties" in hadoop conf folder to change default threshold values
 
-  * Advanced users can change "performanceanaysis.jsp" to change the recommendation algorithms for various parameters. Do perform a new release after this change.
+  * Advanced users can change "performanceanaysis.jsp" to change the recommendation algorithms for various parameters. A new release would be required after this change.
