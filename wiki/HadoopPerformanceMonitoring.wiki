@@ -11,7 +11,7 @@ Hadoop is a distributed computing framework runs on large clusters. A few steps 
   * Hadoop Vaidya
     ** a performance diagnostic tool for Hadoop jobs which executes a set of rules against the job counters and gives a report of performance improvement areas as a result.
     ** _Shortcomings of vaidya_:
-      ** Limited set of rules as of now (due to limited job counters).
+      ** Programmatic interface obnly- limited set of rules as of now (due to limited job counters).
       ** Output XML report is not very user friendly
       ** Separate contrib. module.
 
@@ -21,7 +21,7 @@ Hadoop is a distributed computing framework runs on large clusters. A few steps 
       ** Limited number of metrics as of now
       ** Lots of dependencies on third party software and libraries.
 
-We have come up with a solution to all the shortcomings of Vaidya and Hadoop Metrics as a feature in Hadoop itself. Following are the features we have added in our patch
+Hadoop performance monitoring tool is a solution to overcome the shortcomings of Vaidya and Hadoop Metrics. This tool is a part of core Hadoop itself, so does not have external dependencies. Following are the additional features added as a part of performance monitoring tool-
 ===Added new job/task counters===
     ** Number of spills (per map task )
     ** Maximum memory used (by each task)
@@ -29,7 +29,7 @@ We have come up with a solution to all the shortcomings of Vaidya and Hadoop Met
 [http://hadoop-toolkit.googlecode.com/files/extra_task_counters.jpg]
 
 ===Tasktracker Monitoring===
-On Jobtracker web UI we have given a link “TaskTracker Info” on jobdetails page as shown in the following snapshot.
+On Jobtracker web UI, a new link “TaskTracker Info” has been added on jobdetails page as shown in the following snapshot.
 [http://hadoop-toolkit.googlecode.com/files/task_tracker_monitor_1.jpg]
 
 It gives the current information about all the tasktrackers in realtime while the job is running. Following information about tasktrackers are shown. 
@@ -43,11 +43,11 @@ It gives the current information about all the tasktrackers in realtime while th
 
 
 ===Post Job Performance Analysis & Diagnosis===
-This feature is a little similar to Hadoop vaidya but with increased set of rules, more ser friendly output reports, diagnosis tips for different properties and lastly all of this with just a single click. We have given a link “Performance Analysis ” on jobdetailhistory page as shown in the following snapshot. 
+This feature is somewhat similar to Hadoop vaidya but with increased set of rules, more user friendly output reports, diagnosis tips for different properties and lastly all of this with just a single click. An additional link “Performance Analysis ” is now available on jobdetailhistory page as shown in the following snapshot. 
 
 [http://hadoop-toolkit.googlecode.com/files/post_job_1.jpg]
 
-It gives the following information of each property that affects performance. 
+This view provides the following information of each property that affects performance. 
    ** Property 
    ** Current Value
    ** Suggestion 
@@ -55,7 +55,7 @@ It gives the following information of each property that affects performance.
 
 [http://hadoop-toolkit.googlecode.com/files/post_job_2.jpg]
 
-These features have extra processing overhead on Jobtracker and tasktrackers because they use Top command periodically on tasktrackers. So all of these features can be toggled on/off by just setting a property “mapred.performance.diagnosis” to true/false in mapred-site.xml.
+These features have extra processing overhead on Jobtracker and tasktrackers because they use Top command periodically on tasktrackers. So all of these features can be toggled on/off by just setting a property *“mapred.performance.diagnosis”* to true/false in *mapred-site.xml*.
 
 ====Prerequisites====
   ** Linux ‘top’ command should be available on each tasktracker node.
@@ -63,6 +63,7 @@ These features have extra processing overhead on Jobtracker and tasktrackers bec
   ** More information about tasktrackers like io wait, system cpu usage, network usage etc.
   ** Graphical representation of tastracker statistics.
   ** Addition of more rules in performance diagnosis module.
+  ** Machine learning enabled for suggesting parameters and automatic runs with best parameters
 
 Techincal details are [http://code.google.com/p/hadoop-toolkit/wiki/TechicalDetails here]
 
