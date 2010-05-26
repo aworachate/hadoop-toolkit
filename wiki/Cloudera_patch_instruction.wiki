@@ -13,16 +13,16 @@
 4.	Copy hadoop-performance-analysis.properties file to /etc/hadoop-0.20/conf (/etc/hadoop-0.20/conf which is soft link to /etc/alternatives/hadoop-0.20-conf/)directory.
 
 5.	Add following property to /etc/hadoop-0.20/conf/mapred-site.xml  file 
-<property>
+       <property>
         <name>mapred.performance.diagnose</name>
         <value>true</value>
-  </property>
+       </property>
 
 Can be turned on and off for performance monitoring (true for on and false for off)
 
 6.	Add following servlets configuration to /usr/lib/hadoop-0.20/webapps/job/WEB-INF/web.xml  file
 
-   <servlet>
+     <servlet>
         <servlet-name>org.apache.hadoop.mapred.performanceanalysis_jsp</servlet-name>
         <servlet-class>org.apache.hadoop.mapred.performanceanalysis_jsp</servlet-class>
      </servlet>
@@ -30,17 +30,17 @@ Can be turned on and off for performance monitoring (true for on and false for o
      <servlet>
         <servlet-name>org.apache.hadoop.mapred.tasktrackerinfo_jsp</servlet-name>
         <servlet-class>org.apache.hadoop.mapred.tasktrackerinfo_jsp</servlet-class>
-      </servlet>
+     </servlet>
 
-    <servlet-mapping>
+     <servlet-mapping>
         <servlet-name>org.apache.hadoop.mapred.performanceanalysis_jsp</servlet-name>
         <url-pattern>/performanceanalysis.jsp</url-pattern>
-    </servlet-mapping>
+     </servlet-mapping>
 
-    <servlet-mapping>
+     <servlet-mapping>
         <servlet-name>org.apache.hadoop.mapred.tasktrackerinfo_jsp</servlet-name>
         <url-pattern>/tasktrackerinfo.jsp</url-pattern>
-    </servlet-mapping>
+     </servlet-mapping>
 
 7.	Above step should be performed on each node of hadoop cluster.
 
