@@ -1,0 +1,49 @@
+Cloudera Hadoop Performance Monitoring tool Installation Instructions:
+
+= Hadoop perforamance tool cloudera patch instruction =
+
+
+1.	Install hadoop-0.20.1+152 using CDH2 and stop all hadoop processes.
+
+2.	Download hadoop-0.20.1+152_patch-core.jar, hadoop-performance-analysis.properties files from the download section(http://code.google.com/p/hadoop-toolkit/downloads/list ).
+
+3.	Replace /usr/lib/hadoop-0.20/hadoop-0.20.1+152-core.jar with  hadoop-0.20.1+152_patch-core.jar
+
+4.	Copy hadoop-performance-analysis.properties file to /etc/hadoop-0.20/conf (/etc/hadoop-0.20/conf which is soft link to /etc/alternatives/hadoop-0.20-conf/)directory.
+
+5.	Add following property to /etc/hadoop-0.20/conf/mapred-site.xml  file 
+<property>
+        <name>mapred.performance.diagnose</name>
+        <value>true</value>
+  </property>
+
+Can be turned on and off for performance monitoring (true for on and false for off)
+
+6.	Add following servlets configuration to /usr/lib/hadoop-0.20/webapps/job/WEB-INF/web.xml  file
+
+   <servlet>
+        <servlet-name>org.apache.hadoop.mapred.performanceanalysis_jsp</servlet-name>
+        <servlet-class>org.apache.hadoop.mapred.performanceanalysis_jsp</servlet-class>
+     </servlet>
+
+     <servlet>
+        <servlet-name>org.apache.hadoop.mapred.tasktrackerinfo_jsp</servlet-name>
+        <servlet-class>org.apache.hadoop.mapred.tasktrackerinfo_jsp</servlet-class>
+      </servlet>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.hadoop.mapred.performanceanalysis_jsp</servlet-name>
+        <url-pattern>/performanceanalysis.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.hadoop.mapred.tasktrackerinfo_jsp</servlet-name>
+        <url-pattern>/tasktrackerinfo.jsp</url-pattern>
+    </servlet-mapping>
+
+7.	Above step should be performed on each node of hadoop cluster.
+
+8.	 Start all hadoop processes and run map-reduce job.
+9.	To view performance tool results follow link(http://code.google.com/p/hadoop-toolkit/wiki/HadoopPerformanceMonitoring )
+
+
