@@ -55,7 +55,7 @@ This view provides the following information of each property that affects perfo
 
 [http://hadoop-toolkit.googlecode.com/files/post_job_2.jpg]
 
-These features have extra processing overhead on Jobtracker and tasktrackers because they use Top command periodically on tasktrackers. So all of these features can be toggled on/off by just setting a property *“mapred.performance.diagnosis”* to true/false in *mapred-site.xml*.
+These features have extra processing overhead on Jobtracker and tasktrackers because they use Top command periodically on tasktrackers. So all of these features can be toggled on/off by just setting a property *“mapred.performance.diagnose”* to true/false in *mapred-site.xml*.
 
 ====Prerequisites====
   ** Linux ‘top’ command should be available on each tasktracker node.
