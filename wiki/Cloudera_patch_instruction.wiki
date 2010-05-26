@@ -1,3 +1,4 @@
+#labels sadsad
 Cloudera Hadoop Performance Monitoring tool Installation Instructions:
 
 = Hadoop perforamance tool cloudera patch instruction =
@@ -45,5 +46,3 @@ Can be turned on and off for performance monitoring (true for on and false for o
 
 8.	 Start all hadoop processes and run map-reduce job.
 9.	To view performance tool results follow link(http://code.google.com/p/hadoop-toolkit/wiki/HadoopPerformanceMonitoring )
-
-
