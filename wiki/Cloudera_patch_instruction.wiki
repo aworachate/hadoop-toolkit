@@ -1,4 +1,4 @@
-#labels Hadoop,perforamance,toolclouderapatchinstructionforHadoopversion-hadoop-0.20.1152
+#labels Hadoop,performance,tool,cloudera,patch,instruction,for,Hadoopversion-,hadoop-0.20.1152
 = Hadoop perforamance tool cloudera patch instruction: =
 
 
