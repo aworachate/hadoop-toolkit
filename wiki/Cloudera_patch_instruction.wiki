@@ -1,7 +1,5 @@
-#labels sadsad
-Cloudera Hadoop Performance Monitoring tool Installation Instructions:
-
-= Hadoop perforamance tool cloudera patch instruction =
+#labels HadoopperforamancetoolclouderapatchinstructionforHadoopversion-hadoop-0.20.1152
+= Hadoop perforamance tool cloudera patch instruction: =
 
 
 1.	Install hadoop-0.20.1+152 using CDH2 and stop all hadoop processes.
