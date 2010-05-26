@@ -67,4 +67,6 @@ These features have extra processing overhead on Jobtracker and tasktrackers bec
 
 Techincal details are [http://code.google.com/p/hadoop-toolkit/wiki/TechicalDetails here]
 
-The patches for hadoop version 0.20.2 and 0.19.2 are available in the source repository 
+The patches for hadoop version 0.20.2 and 0.19.2 are available in the source repository
+
+Patch for Cloudera Hadoop Distribution version- hadoop 0.20.1+152 also available[http://code.google.com/p/hadoop-toolkit/wiki/Cloudera_patch_instruction here]
