@@ -1,4 +1,6 @@
-#labels Hadoop,performance,tool,cloudera,patch,instruction,for,Hadoop,version,hadoop,0.20.1,152
+#summary Hadoop performance tool cloudera patch instruction for Hadoop version- hadoop 0.20.1+152
+
+
 = Hadoop perforamance tool cloudera patch instruction: =
 
 
