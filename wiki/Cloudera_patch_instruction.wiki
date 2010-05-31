@@ -8,7 +8,7 @@
 
 2.	Download hadoop-0.20.1+152_patch-core.jar / hadoop-0.20.2+228-core.jar, hadoop-performance-analysis.properties files from the download section(http://code.google.com/p/hadoop-toolkit/downloads/list ).
 
-3.	Replace /usr/lib/hadoop-0.20/hadoop-0.20.1+152-core.jar / hadoop-0.20.2+228-core.jar with  hadoop-0.20.1+152_patch-core.jar / hadoop-0.20.2+228-core.jar
+3.	Replace /usr/lib/hadoop-0.20/hadoop-0.20.1+152-core.jar / hadoop-0.20.2+228-core.jar with  downloaded hadoop-0.20.1+152_patch-core.jar / hadoop-0.20.2+228-core.jar
 
 4.	Copy hadoop-performance-analysis.properties file to /etc/hadoop-0.20/conf (/etc/hadoop-0.20/conf which is soft link to /etc/alternatives/hadoop-0.20-conf/)directory.
 
