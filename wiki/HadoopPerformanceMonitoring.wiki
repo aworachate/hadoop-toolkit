@@ -69,4 +69,4 @@ Techincal details are [http://code.google.com/p/hadoop-toolkit/wiki/TechicalDeta
 
 The patches for hadoop version 0.20.2 and 0.19.2 are available in the source repository
 
-Patch for Cloudera Hadoop Distribution version- hadoop 0.20.1+152 also available [http://code.google.com/p/hadoop-toolkit/wiki/Cloudera_patch_instruction here]
+Patch for Cloudera Hadoop Distribution versions- hadoop 0.20.1+152 and hadoop-0.20.2+228-core.jar are also available [http://code.google.com/p/hadoop-toolkit/wiki/Cloudera_patch_instruction here]
