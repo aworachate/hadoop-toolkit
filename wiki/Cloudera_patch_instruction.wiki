@@ -47,4 +47,5 @@ Can be turned on and off for performance monitoring (true for on and false for o
 8.	Above step should be performed on each node of hadoop cluster.
 
 9.	 Start all hadoop processes(namenode, jobtracker, secondarynamenode, datanode, tasktracker) and run map-reduce job.
+
 10.	To view performance tool results follow link(http://code.google.com/p/hadoop-toolkit/wiki/HadoopPerformanceMonitoring )
