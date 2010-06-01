@@ -1,4 +1,4 @@
-#summary Hadoop performance tool cloudera patch instruction for Hadoop version- hadoop 0.20.1+152 and hadoop-0.20.2+228
+#summary Hadoop performance tool cloudera patch installation instruction for Hadoop version- hadoop 0.20.1+152 and hadoop-0.20.2+228
 
 
 = Hadoop perforamance tool cloudera patch instruction: =
