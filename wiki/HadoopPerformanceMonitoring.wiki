@@ -11,7 +11,7 @@ Hadoop is a distributed computing framework runs on large clusters. A few steps 
   * Hadoop Vaidya
     ** a performance diagnostic tool for Hadoop jobs which executes a set of rules against the job counters and gives a report of performance improvement areas as a result.
     ** _Shortcomings of vaidya_:
-      ** Programmatic interface obnly- limited set of rules as of now (due to limited job counters).
+      ** Programmatic interface only- limited set of rules as of now (due to limited job counters).
       ** Output XML report is not very user friendly
       ** Separate contrib. module.
 
