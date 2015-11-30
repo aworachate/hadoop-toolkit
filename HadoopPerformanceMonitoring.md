@@ -1,0 +1,70 @@
+# Introduction #
+
+Hadoop Performance Monitoring UI provides an Hadoop inbuilt solution for quickly finding performance bottlenecks and provide a visual representation of the configuration parameters which might be tweaked for better performance numbers.
+
+
+# Details #
+
+Hadoop is a distributed computing framework runs on large clusters. A few steps have already been taken in the field of Hadoop performance analysis and diagnosis.
+  * Hadoop Vaidya
+    * a performance diagnostic tool for Hadoop jobs which executes a set of rules against the job counters and gives a report of performance improvement areas as a result.
+    * _Shortcomings of vaidya_:
+      * Programmatic interface only- limited set of rules as of now (due to limited job counters).
+      * Output XML report is not very user friendly
+      * Separate contrib. module.
+
+  * Hadoop Metrics (used with Ganglia and Nagios):
+    * All Hadoop daemons expose runtime metrics which are then analyzed by some cluster monitoring systems like Ganglia or Nagios.
+    * _Shortcomings of Hadoop Metrics_:
+      * Limited number of metrics as of now
+      * Lots of dependencies on third party software and libraries.
+
+Hadoop performance monitoring tool is a solution to overcome the shortcomings of Vaidya and Hadoop Metrics. This tool is a part of core Hadoop itself, so does not have external dependencies. Following are the additional features added as a part of performance monitoring tool-
+### Added new job/task counters ###
+  * Number of spills (per map task )
+  * Maximum memory used (by each task)
+  * GC time millis (time spent in gc by each task)
+![http://hadoop-toolkit.googlecode.com/files/extra_task_counters.jpg](http://hadoop-toolkit.googlecode.com/files/extra_task_counters.jpg)
+
+### Tasktracker Monitoring ###
+On Jobtracker web UI, a new link “TaskTracker Info” has been added on jobdetails page as shown in the following snapshot.
+![http://hadoop-toolkit.googlecode.com/files/task_tracker_monitor_1.jpg](http://hadoop-toolkit.googlecode.com/files/task_tracker_monitor_1.jpg)
+
+It gives the current information about all the tasktrackers in realtime while the job is running. Following information about tasktrackers are shown.
+  * Total Memory (RAM) of tasktracker
+  * Number of CPU cores on tasktracker
+  * CPU Idle Percentage
+  * Free Memory
+  * Cache Memory
+  * Swap Memory used
+![http://hadoop-toolkit.googlecode.com/files/task_tracker_monitor_2.jpg](http://hadoop-toolkit.googlecode.com/files/task_tracker_monitor_2.jpg)
+
+
+### Post Job Performance Analysis & Diagnosis ###
+This feature is somewhat similar to Hadoop vaidya but with increased set of rules, more user friendly output reports, diagnosis tips for different properties and lastly all of this with just a single click. An additional link “Performance Analysis ” is now available on jobdetailhistory page as shown in the following snapshot.
+
+![http://hadoop-toolkit.googlecode.com/files/post_job_1.jpg](http://hadoop-toolkit.googlecode.com/files/post_job_1.jpg)
+
+This view provides the following information of each property that affects performance.
+  * Property
+  * Current Value
+  * Suggestion
+  * Description
+
+![http://hadoop-toolkit.googlecode.com/files/post_job_2.jpg](http://hadoop-toolkit.googlecode.com/files/post_job_2.jpg)
+
+These features have extra processing overhead on Jobtracker and tasktrackers because they use Top command periodically on tasktrackers. So all of these features can be toggled on/off by just setting a property **“mapred.performance.diagnose”** to true/false in **mapred-site.xml**.
+
+#### Prerequisites ####
+  * Linux ‘top’ command should be available on each tasktracker node.
+#### Future Release ####
+  * More information about tasktrackers like io wait, system cpu usage, network usage etc.
+  * Graphical representation of tastracker statistics.
+  * Addition of more rules in performance diagnosis module.
+  * Machine learning enabled for suggesting parameters and automatic runs with best parameters
+
+Technical details are [here](http://code.google.com/p/hadoop-toolkit/wiki/TechicalDetails)
+
+The patches for hadoop version 0.20.2 and 0.19.2 are available in the source repository
+
+Patch for Cloudera Hadoop Distribution versions- hadoop 0.20.1+152 and hadoop-0.20.2+228 are also available [here](http://code.google.com/p/hadoop-toolkit/wiki/Cloudera_patch_instruction)
